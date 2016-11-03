@@ -30,7 +30,6 @@
                 android:textSize="@dimen/activity_text_14"
                 android:gravity="center">
             </TextView>
-
             <TextView
                 android:textColor="@color/white"
                 android:layout_width="1dp"
