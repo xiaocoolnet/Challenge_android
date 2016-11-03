@@ -62,7 +62,7 @@
                 android:scaleType="centerInside"
                 android:layout_width="@dimen/activity_layout_50"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_suo_gray"/>
+                />
             <TextView
                 android:layout_width="@dimen/activity_layout_1"
                 android:layout_height="match_parent"
