@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.example.chy.challenge.PopTalentExperience;
 import com.example.chy.challenge.R;
 
+import static com.baidu.location.h.i.R;
+
 /**
  * Created by 77588 on 2016/9/2.
  *
