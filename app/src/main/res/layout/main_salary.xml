@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/salary_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <RadioButton
+            android:drawableTop="@drawable/btn_click_changce"
+            android:id="@+id/btnChance"
+            android:text="机会"
+            style="@style/main_tab_button"/>
+        <RadioButton
+            android:drawableTop="@drawable/btn_click_resume"
+            android:id="@+id/btnResume"
+            android:text="简历"
+            style="@style/main_tab_button"/>
+        <RadioButton
+            android:drawableTop="@drawable/btn_click_message"
+            android:id="@+id/btnMessage"
+            android:text="消息"
+            style="@style/main_tab_button"/>
+        <RadioButton
+            android:drawableTop="@drawable/btn_click_mine"
+            android:id="@+id/btnMine"
+            android:text="我的"
+            style="@style/main_tab_button"/>
+    </RadioGroup>
+
+</LinearLayout>

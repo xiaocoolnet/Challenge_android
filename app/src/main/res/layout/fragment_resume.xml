@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgc">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <include layout="@layout/title"/>
+        <TextView
+            style="@style/title_text"
+            android:text="简历"/>
+        <Button
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  预览  "
+            android:textColor="@color/white"
+            android:background="@drawable/button_border2"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@color/green"/>
+
+        <!--头像-->
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/imageView"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="王小妞"
+            android:textSize="20sp"
+            android:textColor="@color/green"
+            android:layout_below="@+id/imageView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/name" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/name"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="女"/>
+            <TextView
+                android:layout_margin="4dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1年工作经验"/>
+            <TextView
+                android:layout_margin="4dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="北京"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/group_item"
+        android:padding="10dp">
+        <LinearLayout
+            android:id="@+id/objective"
+            style="@style/index_item">
+            <TextView
+                style="@style/tvStyle_mine"
+                android:text="求职意向"/>
+            <TextView
+                style="@style/personal_data_incomplete"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+        <TextView
+            style="@style/segmentation"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
+        <LinearLayout
+            android:id="@+id/education"
+            style="@style/index_item">
+            <TextView
+                style="@style/tvStyle_mine"
+                android:text="教育背景"/>
+            <TextView
+                style="@style/personal_data_complete"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/segmentation"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
+        <LinearLayout
+            android:id="@+id/work_experience"
+            style="@style/index_item">
+            <TextView
+                style="@style/tvStyle_mine"
+                android:text="工作/实习经历"/>
+            <TextView
+                style="@style/personal_data_complete"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/segmentation"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
+        <LinearLayout
+            android:id="@+id/project_experience"
+            style="@style/index_item">
+            <TextView
+                style="@style/tvStyle_mine"
+                android:text="项目经验"/>
+            <TextView
+                style="@style/personal_data_incomplete"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/segmentation"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
+        <LinearLayout
+            android:id="@+id/advantage"
+            style="@style/index_item">
+            <TextView
+                style="@style/tvStyle_mine"
+                android:text="我的优势"/>
+            <TextView
+                style="@style/personal_data_complete"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

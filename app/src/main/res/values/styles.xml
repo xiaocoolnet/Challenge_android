@@ -1,0 +1,190 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="main_tab_button">
+        <item name="android:textColor">@color/gray3</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+
+    <style name="title_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--添加职位-->
+    <style name="row_add_position">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+    <style name="div_add_position">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
+
+    <!--水平分割线-->
+    <style name="segmentation">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+
+    <!--我的相关-->
+    <style name="group_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="index_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="tvStyle_mine">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!--个人信息-->
+    <style name="personal_data_complete">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:text">完整</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="personal_data_incomplete">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:text">待完善</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:gravity">center</item>
+    </style>
+    
+    <!--求职意向-->
+    <style name="objective_group_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="objective_row_item">
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="objective_left_textview">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="air_cushion">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="objective_right_textview">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <!--人才界面最上面两个按钮-->
+    <style name="selected">
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/green</item>
+    </style>
+    <style name="another">
+        <item name="android:background">@color/green</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--个人信息-->
+    <style name="person_text_main">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="persom_text_describe">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+    <style name="person_air_cushion">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="person_right_image">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="person_row_main">
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="person_row_describe">
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:background">#0000</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="person_divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/gray2</item>
+    </style>
+
+</resources>

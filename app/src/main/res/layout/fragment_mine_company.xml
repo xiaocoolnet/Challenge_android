@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgc">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/title"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <!--设置按钮-->
+
+            <ImageView
+                android:background="@drawable/setting"
+                android:id="@+id/setting"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"/>
+
+            <!--发布职位-->
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  发布职位  "
+                android:textColor="@color/white"
+                android:background="@drawable/button_border2"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/green">
+
+        <!--头像-->
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/picture" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_vip"
+            android:layout_alignBottom="@+id/picture"
+            android:layout_toLeftOf="@+id/linearLayout"
+            android:layout_toStartOf="@+id/linearLayout" />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:id="@+id/linearLayout"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/picture">
+            <!--用户名-->
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:text="王小妞"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--信息-->
+            <TextView
+                android:textColor="@color/white"
+                android:text="免费认证 得积分"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                style="@style/group_item">
+                <LinearLayout
+                    style="@style/index_item">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                    <TextView
+
+                        android:text="认证公司信息"
+                        style="@style/tvStyle_mine"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/segmentation"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+                <LinearLayout
+                    style="@style/index_item">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                    <TextView
+                        android:text="我的公司主页"
+                        style="@style/tvStyle_mine"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/group_item">
+                <LinearLayout
+                    style="@style/index_item">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                    <TextView
+
+                        android:text="我的收藏"
+                        style="@style/tvStyle_mine"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/segmentation"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+                <LinearLayout
+                    style="@style/index_item">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                    <TextView
+                        android:text="我的悬赏"
+                        style="@style/tvStyle_mine"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/group_item">
+                <LinearLayout
+                    style="@style/index_item">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                    <TextView
+
+                        android:text="我的收藏记录"
+                        style="@style/tvStyle_mine"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/segmentation"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+                <LinearLayout
+                    style="@style/index_item">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                    <TextView
+                        android:text="我的面试邀请"
+                        style="@style/tvStyle_mine"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/group_item">
+                <LinearLayout
+                    style="@style/index_item">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                    <TextView
+
+                        android:text="我的黑名单"
+                        style="@style/tvStyle_mine"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

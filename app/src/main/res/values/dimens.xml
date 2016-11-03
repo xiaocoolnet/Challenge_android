@@ -1,0 +1,46 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_layout_0.5">0.5dp</dimen>
+    <dimen name="activity_layout_0">0dp</dimen>
+    <dimen name="activity_layout_1">1dp</dimen>
+    <dimen name="activity_layout_2">2dp</dimen>
+    <dimen name="activity_layout_4">4dp</dimen>
+    <dimen name="activity_layout_5">5dp</dimen>
+    <dimen name="activity_layout_6">6dp</dimen>
+    <dimen name="activity_layout_7">7dp</dimen>
+    <dimen name="activity_layout_8">8dp</dimen>
+    <dimen name="activity_layout_9">9dp</dimen>
+    <dimen name="activity_layout_10">10dp</dimen>
+    <dimen name="activity_layout_15">15dp</dimen>
+    <dimen name="activity_layout_20">20dp</dimen>
+    <dimen name="activity_layout_25">25dp</dimen>
+    <dimen name="activity_layout_30">30dp</dimen>
+    <dimen name="activity_layout_35">35dp</dimen>
+    <dimen name="activity_layout_40">40dp</dimen>
+    <dimen name="activity_layout_45">45dp</dimen>
+    <dimen name="activity_layout_50">50dp</dimen>
+    <dimen name="activity_layout_55">55dp</dimen>
+    <dimen name="activity_layout_60">60dp</dimen>
+    <dimen name="activity_layout_65">65dp</dimen>
+    <dimen name="activity_layout_70">70dp</dimen>
+    <dimen name="activity_layout_75">75dp</dimen>
+    <dimen name="activity_layout_80">80dp</dimen>
+    <dimen name="activity_layout_85">85dp</dimen>
+    <dimen name="activity_layout_90">90dp</dimen>
+    <dimen name="activity_layout_100">100dp</dimen>
+    <dimen name="activity_layout_120">120dp</dimen>
+    <dimen name="activity_text_10">10sp</dimen>
+    <dimen name="activity_text_11">11sp</dimen>
+    <dimen name="activity_text_12">12sp</dimen>
+    <dimen name="activity_text_13">13sp</dimen>
+    <dimen name="activity_text_14">14sp</dimen>
+    <dimen name="activity_text_15">15sp</dimen>
+    <dimen name="activity_text_16">16sp</dimen>
+    <dimen name="activity_text_17">17sp</dimen>
+    <dimen name="activity_text_18">18sp</dimen>
+    <dimen name="activity_text_19">19sp</dimen>
+    <dimen name="activity_text_20">20sp</dimen>
+    <dimen name="activity_text_21">21sp</dimen>
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <include layout="@layout/title"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:text="烟台"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <EditText
+                    android:singleLine="true"
+                    android:id="@+id/search_input"
+                    android:background="@drawable/search_border"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                <LinearLayout
+                    android:id="@+id/search_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true">
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp" />
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/green"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="职位/公司/技能/姓名" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:textSize="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="搜索"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

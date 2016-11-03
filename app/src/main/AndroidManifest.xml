@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.chy.challenge">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".Utils.application"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".login.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ForgetPassWord" />
+        <activity android:name=".Regist" />
+        <activity android:name=".Identity" />
+        <activity android:name=".WelcomTalent" />
+        <activity android:name=".WelcomSalary"></activity>
+        <activity android:name=".SalaryMain" />
+        <activity android:name=".TalentMain"/>
+        <activity android:name=".AddPosition"/>
+        <activity android:name=".Settings"/>
+        <activity android:name=".PhoneBinding"/>
+        <activity android:name=".ValidationPassword"/>
+        <activity android:name=".NewPassword"/>
+        <activity android:name=".AboutResume.Objective"/>
+        <activity android:name=".AboutResume.WorkExperience"/>
+        <activity android:name=".AboutResume.ProjectExperience"/>
+        <activity android:name=".AboutResume.MyAdvantage"/>
+        <activity android:name=".Srearch"/>
+        <activity android:name=".PersonInformationTalent"/>
+        <activity android:name=".PersonInformationChallenge"/>
+        <activity android:name=".Fragment.LocalAddressActivity"></activity>
+    </application>
+
+</manifest>

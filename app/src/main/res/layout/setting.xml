@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgc">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <include layout="@layout/title_back"/>
+        <TextView
+            style="@style/title_text"
+            android:text="设置"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        style="@style/group_item">
+        <LinearLayout
+            android:id="@+id/phone_binding"
+            style="@style/index_item">
+            <TextView
+
+                android:text="手机绑定"
+                style="@style/tvStyle_mine"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <TextView
+            style="@style/segmentation"/>
+        <LinearLayout
+            android:id="@+id/set_password"
+            style="@style/index_item">
+            <TextView
+
+                android:text="设置密码"
+                style="@style/tvStyle_mine"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <TextView
+            style="@style/segmentation"/>
+        <LinearLayout
+            style="@style/index_item">
+            <TextView
+                android:text="消息提醒"
+                style="@style/tvStyle_mine"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/group_item">
+        <LinearLayout
+            style="@style/index_item">
+            <TextView
+
+                android:text="关于我们"
+                style="@style/tvStyle_mine"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/group_item">
+        <LinearLayout
+            style="@style/index_item">
+            <TextView
+
+                android:text="切换身份"
+                style="@style/tvStyle_mine"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/logout"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:text="退出登录"
+        android:textColor="@color/white"/>
+</LinearLayout>

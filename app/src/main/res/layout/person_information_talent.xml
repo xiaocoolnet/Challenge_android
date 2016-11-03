@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+
+        <include layout="@layout/title_back" />
+
+        <TextView
+            style="@style/title_text"
+            android:text="个人信息" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bgc">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    style="@style/person_text_main"
+                    android:text="个人头像" />
+
+                <TextView style="@style/person_air_cushion" />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp" />
+
+                <ImageView style="@style/person_right_image" />
+            </LinearLayout>
+
+            <TextView style="@style/person_divider" />
+
+            <LinearLayout style="@style/person_row_main">
+
+                <TextView
+                    style="@style/person_text_main"
+                    android:text="真实姓名" />
+
+                <TextView style="@style/air_cushion" />
+
+                <TextView
+                    style="@style/persom_text_describe"
+                    android:text="请输入真实姓名" />
+
+                <ImageView style="@style/person_right_image" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/person_row_describe"
+                android:text="我的职业信息" />
+
+            <LinearLayout style="@style/person_row_main">
+
+                <TextView
+                    style="@style/person_text_main"
+                    android:text="我的职位" />
+
+                <TextView style="@style/air_cushion" />
+
+                <TextView
+                    style="@style/persom_text_describe"
+                    android:text="" />
+
+                <ImageView style="@style/person_right_image" />
+            </LinearLayout>
+
+            <TextView style="@style/person_divider" />
+
+            <LinearLayout style="@style/person_row_main">
+
+                <TextView
+                    style="@style/person_text_main"
+                    android:text="接收简历邮箱" />
+
+                <TextView style="@style/air_cushion" />
+
+                <TextView
+                    style="@style/persom_text_describe"
+                    android:text="选填" />
+
+                <ImageView style="@style/person_right_image" />
+            </LinearLayout>
+
+            <TextView style="@style/person_divider" />
+
+            <LinearLayout style="@style/person_row_main">
+
+                <TextView
+                    style="@style/person_text_main"
+                    android:text="当前公司" />
+
+                <TextView style="@style/air_cushion" />
+
+                <TextView
+                    style="@style/persom_text_describe"
+                    android:text="请输入公司名称" />
+
+                <ImageView style="@style/person_right_image" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/person_row_describe"
+                android:text="账号关联" />
+
+            <LinearLayout style="@style/person_row_main">
+
+                <TextView
+                    style="@style/person_text_main"
+                    android:text="QQ" />
+
+                <TextView style="@style/air_cushion" />
+
+                <TextView
+                    style="@style/persom_text_describe"
+                    android:text="请输入QQ" />
+
+                <ImageView style="@style/person_right_image" />
+            </LinearLayout>
+
+            <TextView style="@style/person_divider" />
+
+            <LinearLayout style="@style/person_row_main">
+
+                <TextView
+                    style="@style/person_text_main"
+                    android:text="微信" />
+
+                <TextView style="@style/air_cushion" />
+
+                <TextView
+                    style="@style/persom_text_describe"
+                    android:text="请输入微信账号" />
+
+                <ImageView style="@style/person_right_image" />
+            </LinearLayout>
+
+            <TextView style="@style/person_divider" />
+
+            <LinearLayout style="@style/person_row_main">
+
+                <TextView
+                    style="@style/person_text_main"
+                    android:text="微博" />
+
+                <TextView style="@style/air_cushion" />
+
+                <TextView
+                    style="@style/persom_text_describe"
+                    android:text="请输入微博账号" />
+
+                <ImageView style="@style/person_right_image" />
+            </LinearLayout>
+
+            <TextView style="@style/person_divider" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/person_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:text="保存"
+        android:textColor="@color/white" />
+
+</LinearLayout>
