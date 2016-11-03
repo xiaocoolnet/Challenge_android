@@ -69,7 +69,7 @@
                 android:background="@color/gray"
                 android:layout_marginTop="@dimen/activity_layout_10"
                 android:layout_marginBottom="@dimen/activity_layout_10"
-                android:layouts_marginRight="@dimen/activity_layout_10"/>
+                android:layout_marginRight="@dimen/activity_layout_10"/>
             <EditText
                 android:textCursorDrawable="@drawable/edit_curcor_color"
                 android:textColor="@color/white"

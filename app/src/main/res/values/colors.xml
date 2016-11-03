@@ -13,19 +13,12 @@
     <color name="bgc">#EEE</color>
     <color name="gray2">#e5e5e5</color>
     <color name="gray3">#959595</color>
+    <color name="gray4">#A8A5A8</color>
     <color name="deepgray">#545454</color>
     <color name="orange">#FF5400</color>
+    <color name="black">#080808</color>
     <color name="translucent_gray">#5CCC</color>
-    <color name="black">#000000</color>
-    <color name="whilte">#ffffff</color>
-    <color name="main_color_red">#64D991</color>
-    <color name="view_color">#dfdfdf</color>
-    <color name="red">#f70000</color>
-    <color name="gray_title">#F7F7F7</color>
-    <color name="gray_content">#F5F5F5</color>
-
-
-
-
+    <color name="lucency">#00000000</color><!--透明色-->
+    <color name="gray_content">#5CCC</color>
 
 </resources>

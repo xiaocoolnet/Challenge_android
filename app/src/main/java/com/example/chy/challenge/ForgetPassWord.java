@@ -220,7 +220,6 @@ public class ForgetPassWord extends Activity implements View.OnClickListener{
                         LogUtils.i("Tip",jsonObject.optString("status"));
                         if ("success".equals(jsonObject.optString("status"))){
                             Toast.makeText(mContext,"修改成功，请重新登录",Toast.LENGTH_SHORT).show();
-                            Login.l.finish();
                             startActivity(new Intent(mContext,Login.class));
                             finish();
                         }

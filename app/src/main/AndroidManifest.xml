@@ -21,8 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ForgetPassWord" />
-        <activity android:name=".Regist" />
         <activity android:name=".Identity" />
         <activity android:name=".WelcomTalent" />
         <activity android:name=".WelcomSalary"></activity>
@@ -41,6 +39,10 @@
         <activity android:name=".PersonInformationTalent"/>
         <activity android:name=".PersonInformationChallenge"/>
         <activity android:name=".Fragment.LocalAddressActivity"></activity>
+        <activity android:name=".login.ForgetPassWord"></activity>
+        <activity android:name=".login.Regist"></activity>
+        <activity android:name=".login.register.Register_personal_info"></activity>
+        <activity android:name=".login.register.Write_personal_info"></activity>
     </application>
 
 </manifest>

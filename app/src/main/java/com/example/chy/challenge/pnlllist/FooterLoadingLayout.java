@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.chy.challenge.R;
+
 /**
  * 这个类封装了下拉刷新的布局
  *

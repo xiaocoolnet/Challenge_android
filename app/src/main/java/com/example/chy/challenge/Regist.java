@@ -209,7 +209,6 @@ public class Regist extends Activity implements View.OnClickListener{
                         JSONObject jsonObject = new JSONObject((String) msg.obj);
                         if ("success".equals(jsonObject.optString("status"))){
                             startActivity(new Intent(mContext,Identity.class));
-                            Login.l.finish();
                             finish();
                         }
                     } catch (JSONException e) {

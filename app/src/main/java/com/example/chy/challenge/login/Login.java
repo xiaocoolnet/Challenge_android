@@ -10,46 +10,33 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.chy.challenge.Bin;
-import com.example.chy.challenge.ForgetPassWord;
 import com.example.chy.challenge.Identity;
 import com.example.chy.challenge.NetInfo.UserRequest;
 import com.example.chy.challenge.R;
-import com.example.chy.challenge.Regist;
 import com.example.chy.challenge.Utils.NetBaseUtils;
+import com.example.chy.challenge.button.RevealButton;
+import com.example.chy.challenge.button.WaveView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Login extends Activity implements View.OnClickListener{
-    private EditText phone ;
-    private EditText passWord;
-    private Button login;
-    private TextView forgetPwd;
-    private TextView regist;
-    private ImageButton QQLogin;
-    private ImageButton WechatLogin;
-    private ImageButton WeiboLogin;
+    private EditText phone,passWord;
+    private RevealButton login;
+    private WaveView forgetPwd,regist;
+    private WaveView QQLogin,WechatLogin,WeiboLogin;
     private Context mContext;
     private ProgressDialog dialog;
 
     private String telPhone,pass;
     private static final int KEY = 1;
-    public static Login l = null;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        l = this;
         mContext = this;
         initview();
 
@@ -57,36 +44,35 @@ public class Login extends Activity implements View.OnClickListener{
 
     private void initview() {
         dialog = new ProgressDialog(mContext, AlertDialog.THEME_HOLO_LIGHT);
-        phone = (EditText) findViewById(R.id.phone);
-        passWord = (EditText) findViewById(R.id.passWord);
-        login = (Button) findViewById(R.id.login);
+        phone = (EditText) findViewById(R.id.login_phone);//用户名输入框
+        passWord = (EditText) findViewById(R.id.login_passWord);//密码输入框
+        login = (RevealButton) findViewById(R.id.login);//登录
         login.setOnClickListener(this);
-        forgetPwd = (TextView) findViewById(R.id.forgetPwd);
+        forgetPwd = (WaveView) findViewById(R.id.login_forgetPwd);//忘记密码按钮
         forgetPwd.setOnClickListener(this);
-        regist = (TextView) findViewById(R.id.regist);
+        regist = (WaveView) findViewById(R.id.login_regist);//立即注册按钮
         regist.setOnClickListener(this);
-        QQLogin = (ImageButton) findViewById(R.id.QQLogin);
-        WechatLogin = (ImageButton) findViewById(R.id.WechatLogin);
-        WeiboLogin = (ImageButton) findViewById(R.id.WeboLogin);
+        QQLogin = (WaveView) findViewById(R.id.QQLogin);//QQ
+        WechatLogin = (WaveView) findViewById(R.id.WechatLogin);
+        WeiboLogin = (WaveView) findViewById(R.id.WeboLogin);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.login:
-                //登录功能已关闭，启用时删除startActivity方法，取消loginooo的注释
                 startActivity(new Intent(mContext,Identity.class));
-                //loginooo();
                 break;
-            case R.id.forgetPwd:
+            case R.id.login_forgetPwd:
                 startActivity(new Intent(this,ForgetPassWord.class));
                 break;
-            case R.id.regist:
+            case R.id.login_regist:
                 startActivity(new Intent(this,Regist.class));
                 break;
             default:
                 break;
         }
+
     }
 
     private void loginooo() {
@@ -106,10 +92,14 @@ public class Login extends Activity implements View.OnClickListener{
         if (NetBaseUtils.isConnnected(mContext)) {
             new UserRequest(mContext, handler).Login(telPhone, pass, KEY);
         }else{
-            Toast.makeText(mContext,R.string.net_error,Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, R.string.net_error,Toast.LENGTH_SHORT).show();
             dialog.dismiss();
         }
+
     }
+
+
+
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -120,29 +110,11 @@ public class Login extends Activity implements View.OnClickListener{
                           try {
                               JSONObject jsonObject = new JSONObject(resault);
                               if ("success".equals(jsonObject.optString("status"))){
-                                  JSONObject json = new JSONObject(jsonObject.optString("status"));
-                                  Bin.DataBean bin = new Bin.DataBean();
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCity(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
-                                  bin.setCompany(json.getString(""));
                                   startActivity(new Intent(mContext,Identity.class));
                                   dialog.dismiss();
                                   finish();
                               }else {
-                                  Toast.makeText(mContext,R.string.login_error,Toast.LENGTH_SHORT).show();
+                                  Toast.makeText(mContext, R.string.login_error,Toast.LENGTH_SHORT).show();
                                   new Thread(){
                                       @Override
                                       public void run() {
@@ -160,11 +132,7 @@ public class Login extends Activity implements View.OnClickListener{
                           }
                       }
                     break;
-                case 6:
-                    finish();
-                    break;
             }
-
         };
     };
 }

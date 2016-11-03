@@ -191,4 +191,46 @@ public class UserRequest {
             }
         }.start();
     }
+    /**
+     * 修改企业资料
+     */
+    public void UPDATECOMMANY(final String userid,final String avatar,final String realname,final String myjob,final String email,final String company,final String qq,final String weixin,final String weibo,final int KEY){
+        new Thread(){
+            Message msg = Message.obtain();
+            @Override
+            public void run() {
+                List<NameValuePair> parmas = new ArrayList<NameValuePair>();
+                parmas.add(new BasicNameValuePair("userid",userid));
+                parmas.add(new BasicNameValuePair("avatar",avatar));
+                parmas.add(new BasicNameValuePair("realname",realname));
+                parmas.add(new BasicNameValuePair("myjob",myjob));
+                parmas.add(new BasicNameValuePair("email",email));
+                parmas.add(new BasicNameValuePair("company",company));
+                parmas.add(new BasicNameValuePair("qq",qq));
+                parmas.add(new BasicNameValuePair("weixin",weixin));
+                parmas.add(new BasicNameValuePair("weibo",weibo));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.UPDATECOMMANY,parmas,mContext);
+                msg.what = KEY;
+                msg.obj = result;
+                handler.sendMessage(msg);
+            }
+        }.start();
+    }
+    /**
+     * 上传头像
+     */
+    public void uoloadavator(final String upfile,final int KEY){
+        new Thread(){
+            Message msg = Message.obtain();
+            @Override
+            public void run() {
+                List<NameValuePair> parmas = new ArrayList<NameValuePair>();
+                parmas.add(new BasicNameValuePair("upfile",upfile));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.UPLOADAVATAR,parmas,mContext);
+                msg.what = KEY;
+                msg.obj = result;
+                handler.sendMessage(msg);
+            }
+        }.start();
+    }
 }
