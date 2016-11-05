@@ -233,4 +233,33 @@ public class UserRequest {
             }
         }.start();
     }
+
+    /**
+     * 获取简历列表
+     *
+     * @param KEY
+     */
+    public void GetResumeList(final int KEY) {
+        new Thread() {
+            Message msg = Message.obtain();
+
+            @Override
+            public void run() {
+                List<NameValuePair> parmas = new ArrayList<NameValuePair>();
+                String result = NetBaseUtils.getResponseForPost(UserNetConstant.GET_RESUME_LIST, parmas, mContext);
+                if (result != null) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        if ("success".equals(jsonObject.optString("status"))) {
+                            msg.what = KEY;
+                            msg.obj = result;
+                            handler.sendMessage(msg);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
+    }
 }

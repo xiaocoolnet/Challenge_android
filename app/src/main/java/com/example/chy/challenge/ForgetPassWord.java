@@ -26,7 +26,6 @@ import java.util.regex.Pattern;
  * Created by 77588 on 2016/9/1.
  */
 public class ForgetPassWord extends Activity implements View.OnClickListener{
-
     private int i = 60;
     private int count = 0;
     private EditText inputPhone,inputCode,inputNewPassword,inputNewPassword2;

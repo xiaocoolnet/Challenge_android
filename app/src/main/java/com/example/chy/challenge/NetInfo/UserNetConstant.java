@@ -20,4 +20,6 @@ public interface UserNetConstant extends NetBaseConstant {
     public final static String UPDATECOMMANY = NET_BASE_HOST + "&a=savecompanyinfo";
     //上传头像
     public final static String UPLOADAVATAR= NET_BASE_HOST + "&a=uploadavatar";
+    //获取简历列表
+    public final static String GET_RESUME_LIST = NET_BASE_HOST + "a=getResumeList";
 }

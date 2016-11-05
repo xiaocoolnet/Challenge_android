@@ -33,9 +33,15 @@ public class Talent extends Fragment implements View.OnClickListener{
         initview(rootView);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        NoPosition noPosition = new NoPosition();
-        transaction.replace(R.id.intalent_layout, noPosition);
-        transaction.commit();
+        if(false){
+            NoPosition noPosition = new NoPosition();
+            transaction.replace(R.id.intalent_layout, noPosition);
+            transaction.commit();
+        }else {
+            ResumeListFragment resumeListFragment = new ResumeListFragment();
+            transaction.replace(R.id.intalent_layout,resumeListFragment);
+            transaction.commit();
+        }
         return rootView;
     }
     private void initview(View rootView) {
