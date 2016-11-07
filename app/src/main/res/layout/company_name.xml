@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgc">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_50">
+        <include layout="@layout/title_back_compelete"/>
+        <TextView
+            android:text="公司名称"
+            style="@style/title_text"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/activity_layout_5"
+        android:layout_marginBottom="@dimen/activity_layout_5"
+        android:paddingRight="@dimen/activity_layout_15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+        <TextView
+            android:id="@+id/text_length"
+            android:text="0"
+            android:textColor="@color/green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="/30"
+            android:textColor="@color/green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <EditText
+        android:paddingLeft="@dimen/activity_layout_15"
+        android:paddingRight="@dimen/activity_layout_15"
+        android:hint="请输入公司全称"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_60"
+        android:id="@+id/comNameInput" />
+
+    <TextView
+        android:layout_marginTop="@dimen/activity_layout_10"
+        android:layout_marginLeft="@dimen/activity_layout_15"
+        android:layout_marginRight="@dimen/activity_layout_15"
+        android:text="公司全称是您所在公司的营业执照或劳动合同上的公司名称，请确保您填写完全匹配"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

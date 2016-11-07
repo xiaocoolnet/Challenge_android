@@ -45,6 +45,7 @@
         <activity android:name=".login.register.Write_personal_info"/>
         <activity android:name=".TalentResumeMore"/>
         <activity android:name=".CompanyInformation"/>
+        <activity android:name=".CompanyName"/>
     </application>
 
 </manifest>

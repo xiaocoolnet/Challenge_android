@@ -39,6 +39,7 @@
                 <TextView
                     style="@style/segmentation"/>
                 <LinearLayout
+                    android:id="@+id/setCompanyName"
                     style="@style/company_info_row">
                     <TextView
                         android:text="公司全称"
