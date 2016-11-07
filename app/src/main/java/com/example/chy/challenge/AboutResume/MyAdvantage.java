@@ -20,6 +20,7 @@ public class MyAdvantage extends Activity implements View.OnClickListener{
     private EditText editAdvantage;
     private ImageView back,compelete;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
