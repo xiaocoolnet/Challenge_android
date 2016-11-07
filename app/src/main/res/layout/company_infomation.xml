@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <include layout="@layout/title_back_compelete"/>
+            <TextView
+                android:text="公司信息"
+                style="@style/title_text"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                style="@style/company_info_div">
+                <LinearLayout
+                    style="@style/company_info_row">
+                    <TextView
+                        android:text="公司logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        style="@style/air_cushion"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <TextView
+                    style="@style/segmentation"/>
+                <LinearLayout
+                    style="@style/company_info_row">
+                    <TextView
+                        android:text="公司全称"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        style="@style/air_cushion"/>
+                    <TextView
+                        android:id="@+id/company_name"
+                        android:text="北京互联网科技有限公司"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <TextView
+                    style="@style/segmentation"/>
+                <LinearLayout
+                    style="@style/company_info_row">
+                    <TextView
+                        android:text="公司官网"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        style="@style/air_cushion"/>
+                    <TextView
+                        android:id="@+id/company_web"
+                        android:text="http://www.hulian.net"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <TextView
+                    style="@style/segmentation"/>
+                <LinearLayout
+                    style="@style/company_info_row">
+                    <TextView
+                        android:text="所属行业"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        style="@style/air_cushion"/>
+                    <TextView
+                        android:id="@+id/industry"
+                        android:text="移动互联网"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <TextView
+                    style="@style/segmentation"/>
+                <LinearLayout
+                    style="@style/company_info_row">
+                    <TextView
+                        android:text="人员规模"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        style="@style/air_cushion"/>
+                    <TextView
+                        android:text="没找到这个参数"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <TextView
+                    style="@style/segmentation"/>
+                <LinearLayout
+                    style="@style/company_info_row">
+                    <TextView
+                        android:text="融资阶段"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        style="@style/air_cushion"/>
+                    <TextView
+                        android:text="没找到这个参数"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/company_info_div">
+                <LinearLayout
+                    style="@style/company_info_row">
+                    <TextView
+                        android:text="公司介绍"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        style="@style/air_cushion"/>
+                    <TextView
+                        android:id="@+id/com_introduce"
+                        android:text="请填写"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <TextView
+                    style="@style/segmentation"/>
+                <LinearLayout
+                    style="@style/company_info_row">
+                    <TextView
+                        android:text="产品介绍"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        style="@style/air_cushion"/>
+                    <TextView
+                        android:id="@+id/produte_info"
+                        android:text="√"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

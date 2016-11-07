@@ -1,12 +1,13 @@
 package com.example.chy.challenge.Adepter;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by 77588 on 2016/11/1.
  */
 
-public class TalentResumeInfo {
+public class TalentResumeInfo implements Serializable {
 
     /**
      * status : success
@@ -62,7 +63,7 @@ public class TalentResumeInfo {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable{
         private String userid;
         private String realname;
         private String usertype;
@@ -337,7 +338,7 @@ public class TalentResumeInfo {
             this.project = project;
         }
 
-        public static class EducationBean {
+        public static class EducationBean implements  Serializable{
             private String userid;
             private String school;
             private String major;
@@ -403,7 +404,7 @@ public class TalentResumeInfo {
             }
         }
 
-        public static class WorkBean {
+        public static class WorkBean implements Serializable{
             private String userid;
             private String company_name;
             private String company_industry;
@@ -478,7 +479,7 @@ public class TalentResumeInfo {
             }
         }
 
-        public static class ProjectBean {
+        public static class ProjectBean implements Serializable{
             private String userid;
             private String project_name;
             private String start_time;

@@ -187,4 +187,34 @@
         <item name="android:background">@color/gray2</item>
     </style>
 
+    <!--简历详情页相关-->
+    <style name="resume_div">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+
+    <!--公司信息-->
+    <style name="company_info_row">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+    <style name="company_info_div">
+        <item name="android:paddingLeft">@dimen/activity_layout_10</item>
+        <item name="android:paddingRight">@dimen/activity_layout_10</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
 </resources>

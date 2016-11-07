@@ -242,11 +242,39 @@ public class UserRequest {
     public void GetResumeList(final int KEY) {
         new Thread() {
             Message msg = Message.obtain();
-
             @Override
             public void run() {
                 List<NameValuePair> parmas = new ArrayList<NameValuePair>();
                 String result = NetBaseUtils.getResponseForPost(UserNetConstant.GET_RESUME_LIST, parmas, mContext);
+                if (result != null) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        if ("success".equals(jsonObject.optString("status"))) {
+                            msg.what = KEY;
+                            msg.obj = result;
+                            handler.sendMessage(msg);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
+    }
+
+    /**
+     * 获取我的企业信息
+     * @param userid
+     * @param KEY
+     */
+    public void GetMyCompanyInfo(final String userid,final int KEY){
+        new Thread(){
+            Message msg = new Message();
+            @Override
+            public void run() {
+                List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair("userid",userid));
+                String result = NetBaseUtils.getResponseForPost(UserNetConstant.GET_MY_COMPANY_INFO,pairs,mContext);
                 if (result != null) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);

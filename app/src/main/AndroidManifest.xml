@@ -38,11 +38,13 @@
         <activity android:name=".Srearch"/>
         <activity android:name=".PersonInformationTalent"/>
         <activity android:name=".PersonInformationChallenge"/>
-        <activity android:name=".Fragment.LocalAddressActivity"></activity>
-        <activity android:name=".login.ForgetPassWord"></activity>
-        <activity android:name=".login.Regist"></activity>
-        <activity android:name=".login.register.Register_personal_info"></activity>
-        <activity android:name=".login.register.Write_personal_info"></activity>
+        <activity android:name=".Fragment.LocalAddressActivity"/>
+        <activity android:name=".login.ForgetPassWord"/>
+        <activity android:name=".login.Regist"/>
+        <activity android:name=".login.register.Register_personal_info"/>
+        <activity android:name=".login.register.Write_personal_info"/>
+        <activity android:name=".TalentResumeMore"/>
+        <activity android:name=".CompanyInformation"/>
     </application>
 
 </manifest>

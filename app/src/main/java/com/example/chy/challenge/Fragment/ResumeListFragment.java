@@ -3,6 +3,7 @@ package com.example.chy.challenge.Fragment;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,12 +11,15 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.chy.challenge.Adepter.TalentAdepter2;
+import com.example.chy.challenge.Adepter.TalentAdepter;
 import com.example.chy.challenge.Adepter.TalentResumeInfo;
 import com.example.chy.challenge.NetInfo.UserRequest;
 import com.example.chy.challenge.R;
+import com.example.chy.challenge.TalentResumeMore;
+import com.example.chy.challenge.Utils.LogUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,21 +32,29 @@ import java.util.List;
  * Created by 77588 on 2016/11/3.
  */
 
-public class ResumeListFragment extends Fragment {
+public class ResumeListFragment extends Fragment{
     private List<TalentResumeInfo.DataBean> listData = new ArrayList<>();
     private List<TalentResumeInfo.DataBean.EducationBean> listEdu;
     private List<TalentResumeInfo.DataBean.ProjectBean> listPro;
     private List<TalentResumeInfo.DataBean.WorkBean> listWor;
     private Context mContext;
     private final int KEY = 1;
-    private TalentAdepter2 talenadapter;
+    private TalentAdepter talenadapter;
     private ListView vlistData;
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.talent_resume_list,container,false);
         mContext = getActivity();
         vlistData = (ListView) view.findViewById(R.id.listData);
+        vlistData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(mContext,TalentResumeMore.class);
+                intent.putExtra("data",listData.get(position));
+                startActivity(intent);
+            }
+        });
         new UserRequest(mContext,handler).GetResumeList(KEY);
         return view;
     }
@@ -136,13 +148,14 @@ public class ResumeListFragment extends Fragment {
                                         listData.add(talentResumeInfo);
                                     }
                                 }
-                                talenadapter = new TalentAdepter2(mContext,R.layout.talent_adepter,listData);
+                                talenadapter = new TalentAdepter(mContext,R.layout.talent_adepter,listData);
                                 vlistData.setAdapter(talenadapter);
                             }else {}
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
+                    LogUtils.e("Tip",listEdu.get(0).getSchool());
                     break;
             }
         }
