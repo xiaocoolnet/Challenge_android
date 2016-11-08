@@ -7,7 +7,6 @@
     <string name="messages_title">消息</string>
 
 
-
     <string name="pushmsg_center_no_more_msg">已经到底啦</string>
     <string name="pushmsg_center_pull_up_text">松开加载更多</string>
     <string name="pushmsg_center_pull_down_text">下拉可以刷新</string>
@@ -22,7 +21,6 @@
     <string name="pull_to_refresh_header_last_time">@string/pushmsg_center_pull_down_update_time</string>
     <string name="pull_to_refresh_footer_hint_ready">松开载入更多</string>
     <string name="pull_to_refresh_no_more_data">@string/pushmsg_center_no_more_msg</string>
-
 
 
     <string name="net_error">网络错误,请重试!</string>
@@ -48,4 +46,12 @@
     <string name="forget_title_top">忘记密码</string>
     <string name="forget_sure_pass">密码确认</string>
     <string name="register_et_newpass">请重新输入新密码</string>
+
+    <!--公司详情里人员数量和融资情况-->
+    <string name="ccp1">0&#8211;20人</string>
+    <string name="ccp2">20&#8211;99人</string>
+    <string name="ccp3">99&#8211;499人</string>
+    <string name="cfp1">未融资</string>
+    <string name="cfp2">A阶段</string>
+    <string name="cfp3">B阶段</string>
 </resources>

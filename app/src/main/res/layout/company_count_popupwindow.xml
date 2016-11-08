@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="人员规模"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:textColor="@color/gray"/>
+    <TextView
+        android:id="@+id/ccp1"
+        android:text="@string/ccp1"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:textColor="@color/gray"/>
+    <TextView
+        android:id="@+id/ccp2"
+        android:text="@string/ccp2"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:textColor="@color/gray"/>
+    <TextView
+        android:id="@+id/ccp3"
+        android:text="@string/ccp3"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+</LinearLayout>

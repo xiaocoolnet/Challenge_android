@@ -46,6 +46,9 @@
         <activity android:name=".TalentResumeMore"/>
         <activity android:name=".CompanyInformation"/>
         <activity android:name=".CompanyName"/>
+        <activity android:name=".CompanyWeb"/>
+        <activity android:name=".CompanyIntroduction"/>
+        <activity android:name=".CompanyProduct"/>
     </application>
 
 </manifest>
