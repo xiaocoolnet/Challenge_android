@@ -44,7 +44,6 @@ public class CompanyInformation extends Activity implements View.OnClickListener
         initview();
         initLoad();
     }
-
     private void initview() {
         company_name = (TextView) findViewById(R.id.company_name);
         company_web = (TextView) findViewById(R.id.company_web);
