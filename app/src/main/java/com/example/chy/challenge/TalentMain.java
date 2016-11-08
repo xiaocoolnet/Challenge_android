@@ -16,9 +16,10 @@ import com.example.chy.challenge.Fragment.Talent;
 /**
  * Created by 77588 on 2016/9/1.
  */
-public class TalentMain extends Activity implements View.OnClickListener,NoPosition.btnAddClickListener,MineForCompany.btnSettingListener {
-    private RadioButton btnTalent,btnMessage,btnMine;
+public class TalentMain extends Activity implements View.OnClickListener, NoPosition.btnAddClickListener, MineForCompany.btnSettingListener {
+    private RadioButton btnTalent, btnMessage, btnMine;
     private boolean HadPosition = true;
+    private int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +31,8 @@ public class TalentMain extends Activity implements View.OnClickListener,NoPosit
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Talent talent = new Talent();
-        transaction.replace(R.id.talent_layout,talent);
+        transaction.replace(R.id.talent_layout, talent);
         transaction.commit();
-
     }
 
     private void initview() {
@@ -51,35 +51,45 @@ public class TalentMain extends Activity implements View.OnClickListener,NoPosit
         btnMine.setTextColor(getResources().getColor(R.color.gray));
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btnTalent:
-                btnTalent.setTextColor(getResources().getColor(R.color.green));
-                Talent talent = new Talent();
-                transaction.replace(R.id.talent_layout,talent);
-                transaction.commit();
+                if (flag != 1) {
+                    flag = 1;
+                    btnTalent.setTextColor(getResources().getColor(R.color.green));
+                    Talent talent = new Talent();
+                    transaction.replace(R.id.talent_layout, talent);
+                    transaction.commit();
+                }
                 break;
             case R.id.btnMessage:
-                btnMessage.setTextColor(getResources().getColor(R.color.green));
-                Messages messages = new Messages();
-                transaction.replace(R.id.talent_layout,messages);
-                transaction.commit();
+                if (flag != 2) {
+                    flag = 2;
+                    btnMessage.setTextColor(getResources().getColor(R.color.green));
+                    Messages messages = new Messages();
+                    transaction.replace(R.id.talent_layout, messages);
+                    transaction.commit();
+                }
                 break;
             case R.id.btnMine:
-                btnMine.setTextColor(getResources().getColor(R.color.green));
-                MineForCompany mineForCompany = new MineForCompany();
-                transaction.replace(R.id.talent_layout, mineForCompany);
-                transaction.commit();
+                if (flag != 3) {
+                    flag = 3;
+                    btnMine.setTextColor(getResources().getColor(R.color.green));
+                    MineForCompany mineForCompany = new MineForCompany();
+                    transaction.replace(R.id.talent_layout, mineForCompany);
+                    transaction.commit();
+                }
                 break;
             default:
                 break;
         }
     }
-    public void onBtnClick(){
+
+    public void onBtnClick() {
         startActivity(new Intent(this, AddPosition.class));
     }
 
     @Override
     public void onBtnSettingClick() {
-        startActivity(new Intent(this,Settings.class));
+        startActivity(new Intent(this, Settings.class));
     }
 }

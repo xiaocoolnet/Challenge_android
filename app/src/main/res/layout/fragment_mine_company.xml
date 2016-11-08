@@ -124,6 +124,7 @@
             <LinearLayout
                 style="@style/group_item">
                 <LinearLayout
+                    android:id="@+id/my_collection"
                     style="@style/index_item">
                     <ImageView
                         android:layout_width="50dp"

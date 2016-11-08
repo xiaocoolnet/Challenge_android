@@ -291,7 +291,7 @@ public class TalentResumeInfo implements Serializable {
         }
 
         public String getWantsalary() {
-            return wantsalary;
+            return "￥"+wantsalary+"K";
         }
 
         public void setWantsalary(String wantsalary) {

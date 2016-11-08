@@ -1,24 +1,21 @@
-package com.example.chy.challenge.Fragment;
+package com.example.chy.challenge;
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.example.chy.challenge.Adepter.TalentAdepter;
 import com.example.chy.challenge.Adepter.TalentResumeInfo;
 import com.example.chy.challenge.NetInfo.UserRequest;
-import com.example.chy.challenge.R;
-import com.example.chy.challenge.TalentResumeMore;
+import com.example.chy.challenge.Utils.LogUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,10 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by 77588 on 2016/11/3.
+ * Created by 77588 on 2016/11/8.
  */
 
-public class ResumeListFragment extends Fragment{
+public class MyCollection extends Activity implements View.OnClickListener{
     private List<TalentResumeInfo.DataBean> listData = new ArrayList<>();
     private List<TalentResumeInfo.DataBean.EducationBean> listEdu;
     private List<TalentResumeInfo.DataBean.ProjectBean> listPro;
@@ -39,14 +36,15 @@ public class ResumeListFragment extends Fragment{
     private Context mContext;
     private final int KEY = 1;
     private TalentAdepter talenadapter;
-    private ListView vlistData;
-    @Nullable
+    private RelativeLayout back;
+    private ListView listView;
     @Override
-    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.talent_resume_list,container,false);
-        mContext = getActivity();
-        vlistData = (ListView) view.findViewById(R.id.listData);
-        vlistData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.my_collection);
+        mContext = this;
+        initview();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(mContext,TalentResumeMore.class);
@@ -54,10 +52,23 @@ public class ResumeListFragment extends Fragment{
                 startActivity(intent);
             }
         });
-        new UserRequest(mContext,handler).GetResumeList(KEY);
-        return view;
+        new UserRequest(mContext,handler).GetFavoriteList("301","2",KEY);
     }
 
+    private void initview() {
+        back = (RelativeLayout) findViewById(R.id.back);
+        back.setOnClickListener(this);
+        listView = (ListView) findViewById(R.id.collection_list);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.back:
+                finish();
+                break;
+        }
+    }
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         public void handleMessage(Message msg){
@@ -148,12 +159,13 @@ public class ResumeListFragment extends Fragment{
                                     }
                                 }
                                 talenadapter = new TalentAdepter(mContext,R.layout.talent_adepter,listData);
-                                vlistData.setAdapter(talenadapter);
+                                listView.setAdapter(talenadapter);
                             }else {}
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
+                    LogUtils.e("Tip",listEdu.get(0).getSchool());
                     break;
             }
         }

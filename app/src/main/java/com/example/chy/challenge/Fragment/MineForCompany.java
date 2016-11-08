@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 
 import com.example.chy.challenge.CompanyInformation;
 import com.example.chy.challenge.Models.CompanyInfo;
+import com.example.chy.challenge.MyCollection;
 import com.example.chy.challenge.NetInfo.UserRequest;
 import com.example.chy.challenge.R;
 
@@ -31,7 +32,7 @@ import java.util.List;
  */
 public class MineForCompany extends Fragment implements View.OnClickListener {
     private List<CompanyInfo.DataBean.JobsBean> listJob;
-    private LinearLayout company_information;
+    private LinearLayout company_information,myCollection;
     private final int KEY = 1;
     private Context mContext;
 
@@ -55,6 +56,8 @@ public class MineForCompany extends Fragment implements View.OnClickListener {
         setting.setOnClickListener(this);
         company_information = (LinearLayout) rootView.findViewById(R.id.company_information);
         company_information.setOnClickListener(this);
+        myCollection = (LinearLayout) rootView.findViewById(R.id.my_collection);
+        myCollection.setOnClickListener(this);
     }
 
     @Override
@@ -68,6 +71,9 @@ public class MineForCompany extends Fragment implements View.OnClickListener {
                 break;
             case R.id.company_information:
                 new UserRequest(mContext,handler).GetMyCompanyInfo("301",KEY);
+                break;
+            case R.id.my_collection:
+                startActivity(new Intent(mContext, MyCollection.class));
                 break;
             default:
                 break;

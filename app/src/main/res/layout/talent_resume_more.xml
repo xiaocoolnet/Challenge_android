@@ -160,13 +160,6 @@
                         android:layout_marginLeft="@dimen/activity_layout_15"
                         android:layout_weight="1"
                         android:text="产品经理" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="￥"
-                        android:textColor="@color/green" />
-
                     <TextView
                         android:id="@+id/wantsalary"
                         android:layout_width="wrap_content"

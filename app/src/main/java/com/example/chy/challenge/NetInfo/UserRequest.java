@@ -290,4 +290,30 @@ public class UserRequest {
             }
         }.start();
     }
+
+    public void GetFavoriteList(final String userid,final String type,final int KEY){
+        new Thread(){
+            Message msg = new Message();
+            @Override
+            public void run() {
+                List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair("userid",userid));
+                pairs.add(new BasicNameValuePair("type",type));
+                String result = NetBaseUtils.getResponseForPost(UserNetConstant.GET_FAVORITE_LIST,pairs,mContext);
+                if (result!=null){
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        if ("success".equals(jsonObject.optString("status"))) {
+                            msg.what = KEY;
+                            msg.obj = result;
+                            handler.sendMessage(msg);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
+
+    }
 }
