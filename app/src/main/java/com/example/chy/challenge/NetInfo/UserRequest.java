@@ -191,42 +191,46 @@ public class UserRequest {
             }
         }.start();
     }
+
     /**
      * 修改企业资料
      */
-    public void UPDATECOMMANY(final String userid,final String avatar,final String realname,final String myjob,final String email,final String company,final String qq,final String weixin,final String weibo,final int KEY){
-        new Thread(){
+    public void UPDATECOMMANY(final String userid, final String avatar, final String realname, final String myjob, final String email, final String company, final String qq, final String weixin, final String weibo, final int KEY) {
+        new Thread() {
             Message msg = Message.obtain();
+
             @Override
             public void run() {
                 List<NameValuePair> parmas = new ArrayList<NameValuePair>();
-                parmas.add(new BasicNameValuePair("userid",userid));
-                parmas.add(new BasicNameValuePair("avatar",avatar));
-                parmas.add(new BasicNameValuePair("realname",realname));
-                parmas.add(new BasicNameValuePair("myjob",myjob));
-                parmas.add(new BasicNameValuePair("email",email));
-                parmas.add(new BasicNameValuePair("company",company));
-                parmas.add(new BasicNameValuePair("qq",qq));
-                parmas.add(new BasicNameValuePair("weixin",weixin));
-                parmas.add(new BasicNameValuePair("weibo",weibo));
-                String result = NetBaseUtils.getResponseForImg(UserNetConstant.UPDATECOMMANY,parmas,mContext);
+                parmas.add(new BasicNameValuePair("userid", userid));
+                parmas.add(new BasicNameValuePair("avatar", avatar));
+                parmas.add(new BasicNameValuePair("realname", realname));
+                parmas.add(new BasicNameValuePair("myjob", myjob));
+                parmas.add(new BasicNameValuePair("email", email));
+                parmas.add(new BasicNameValuePair("company", company));
+                parmas.add(new BasicNameValuePair("qq", qq));
+                parmas.add(new BasicNameValuePair("weixin", weixin));
+                parmas.add(new BasicNameValuePair("weibo", weibo));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.UPDATECOMMANY, parmas, mContext);
                 msg.what = KEY;
                 msg.obj = result;
                 handler.sendMessage(msg);
             }
         }.start();
     }
+
     /**
      * 上传头像
      */
-    public void uoloadavator(final String upfile,final int KEY){
-        new Thread(){
+    public void uoloadavator(final String upfile, final int KEY) {
+        new Thread() {
             Message msg = Message.obtain();
+
             @Override
             public void run() {
                 List<NameValuePair> parmas = new ArrayList<NameValuePair>();
-                parmas.add(new BasicNameValuePair("upfile",upfile));
-                String result = NetBaseUtils.getResponseForImg(UserNetConstant.UPLOADAVATAR,parmas,mContext);
+                parmas.add(new BasicNameValuePair("upfile", upfile));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.UPLOADAVATAR, parmas, mContext);
                 msg.what = KEY;
                 msg.obj = result;
                 handler.sendMessage(msg);
@@ -242,6 +246,7 @@ public class UserRequest {
     public void GetResumeList(final int KEY) {
         new Thread() {
             Message msg = Message.obtain();
+
             @Override
             public void run() {
                 List<NameValuePair> parmas = new ArrayList<NameValuePair>();
@@ -264,17 +269,19 @@ public class UserRequest {
 
     /**
      * 获取我的企业信息
+     *
      * @param userid
      * @param KEY
      */
-    public void GetMyCompanyInfo(final String userid,final int KEY){
-        new Thread(){
+    public void GetMyCompanyInfo(final String userid, final int KEY) {
+        new Thread() {
             Message msg = new Message();
+
             @Override
             public void run() {
                 List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-                pairs.add(new BasicNameValuePair("userid",userid));
-                String result = NetBaseUtils.getResponseForPost(UserNetConstant.GET_MY_COMPANY_INFO,pairs,mContext);
+                pairs.add(new BasicNameValuePair("userid", userid));
+                String result = NetBaseUtils.getResponseForPost(UserNetConstant.GET_MY_COMPANY_INFO, pairs, mContext);
                 if (result != null) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
@@ -291,16 +298,24 @@ public class UserRequest {
         }.start();
     }
 
-    public void GetFavoriteList(final String userid,final String type,final int KEY){
-        new Thread(){
+    /**
+     * 获取收藏列表
+     *
+     * @param userid
+     * @param type
+     * @param KEY
+     */
+    public void GetFavoriteList(final String userid, final String type, final int KEY) {
+        new Thread() {
             Message msg = new Message();
+
             @Override
             public void run() {
                 List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-                pairs.add(new BasicNameValuePair("userid",userid));
-                pairs.add(new BasicNameValuePair("type",type));
-                String result = NetBaseUtils.getResponseForPost(UserNetConstant.GET_FAVORITE_LIST,pairs,mContext);
-                if (result!=null){
+                pairs.add(new BasicNameValuePair("userid", userid));
+                pairs.add(new BasicNameValuePair("type", type));
+                String result = NetBaseUtils.getResponseForPost(UserNetConstant.GET_FAVORITE_LIST, pairs, mContext);
+                if (result != null) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         if ("success".equals(jsonObject.optString("status"))) {
@@ -316,4 +331,74 @@ public class UserRequest {
         }.start();
 
     }
+
+    /**
+     * 添加收藏
+     *
+     * @param userid
+     * @param object_id
+     * @param type
+     * @param KEY
+     */
+    public void AddFavoriteList(final String userid, final String object_id, final String type, final int KEY) {
+        new Thread() {
+            Message msg = new Message();
+
+            @Override
+            public void run() {
+                List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair("userid", userid));
+                pairs.add(new BasicNameValuePair("object_id", object_id));
+                pairs.add(new BasicNameValuePair("type", type));
+                String result = NetBaseUtils.getResponseForPost(UserNetConstant.ADD_FAVORITE_LIST, pairs, mContext);
+                if (result != null) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        msg.what = KEY;
+                        msg.obj = result;
+                        handler.sendMessage(msg);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
+
+    }
+
+    /**
+     * 检查手否收藏
+     *
+     * @param userid
+     * @param object_id
+     * @param type
+     * @param KEY
+     */
+    public void CheckHadFavorite(final String userid, final String object_id, final String type, final int KEY) {
+        new Thread() {
+            Message msg = new Message();
+
+            @Override
+            public void run() {
+                List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair("userid", userid));
+                pairs.add(new BasicNameValuePair("object_id", object_id));
+                pairs.add(new BasicNameValuePair("type", type));
+                String result = NetBaseUtils.getResponseForPost(UserNetConstant.CHECK_HAD_FAVORITE, pairs, mContext);
+                if (result != null) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        msg.what = KEY;
+                        msg.obj = result;
+                        handler.sendMessage(msg);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
+
+    }
+
 }

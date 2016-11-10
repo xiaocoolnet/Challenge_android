@@ -17,12 +17,16 @@
             android:text="王小妞" />
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:id="@+id/collection"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"/>
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_toLeftOf="@id/collection"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true" />
     </RelativeLayout>
 
     <ScrollView

@@ -1,29 +1,44 @@
 package com.example.chy.challenge;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chy.challenge.Adepter.EducationAdepter;
 import com.example.chy.challenge.Adepter.TalentResumeInfo;
 import com.example.chy.challenge.Adepter.WorkAdepter;
+import com.example.chy.challenge.NetInfo.UserRequest;
+import com.example.chy.challenge.Utils.LogUtils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by 77588 on 2016/11/5.
  */
 
-public class TalentResumeMore extends Activity implements View.OnClickListener{
+public class TalentResumeMore extends Activity implements View.OnClickListener {
+    private final int KEY_CHECK_COLLECTION = 1;
+    private final int KEY_ADD_FAVORITE = 2;
+    private ImageView collection;
     private Context mContext;
     private TalentResumeInfo.DataBean data;
     private Button btnGetPhone;
     private RelativeLayout back;
-    private TextView realname,realname2,jobstate,city,work_life,degree,work_property,position_type,wantsalary,categories;
-    private ListView eduListView,workListView;
+    private TextView realname, realname2, jobstate, city, work_life, degree, work_property, position_type, wantsalary, categories;
+    private ListView eduListView, workListView;
     private TextView advantage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +54,8 @@ public class TalentResumeMore extends Activity implements View.OnClickListener{
         back.setOnClickListener(this);
         btnGetPhone = (Button) findViewById(R.id.btnGetPhone);
         btnGetPhone.setOnClickListener(this);
+        collection = (ImageView) findViewById(R.id.collection);
+        collection.setOnClickListener(this);
 
         realname = (TextView) findViewById(R.id.realname);
         realname2 = (TextView) findViewById(R.id.realname2);
@@ -66,22 +83,63 @@ public class TalentResumeMore extends Activity implements View.OnClickListener{
         position_type.setText(data.getPosition_type());
         wantsalary.setText(data.getWantsalary());
         categories.setText(data.getCategories());
-        EducationAdepter eduAdepter = new EducationAdepter(mContext,R.layout.education_adepter,data.getEducation());
+        EducationAdepter eduAdepter = new EducationAdepter(mContext, R.layout.education_adepter, data.getEducation());
         eduListView.setAdapter(eduAdepter);
-        WorkAdepter workAdepter = new WorkAdepter(mContext,R.layout.work_adepter,data.getWork());
+        WorkAdepter workAdepter = new WorkAdepter(mContext, R.layout.work_adepter, data.getWork());
         workListView.setAdapter(workAdepter);
         advantage.setText(data.getAdvantage());
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.back:
                 finish();
                 break;
             case R.id.btnGetPhone:
 
                 break;
+            case R.id.collection:
+                new UserRequest(mContext,handler).CheckHadFavorite(data.getUserid(), data.getResumes_id(), "2", KEY_CHECK_COLLECTION);
+                break;
         }
     }
+
+    @SuppressLint("HandlerLeak")
+    private Handler handler = new android.os.Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case KEY_CHECK_COLLECTION:
+                    LogUtils.e("Tip","开始检测");
+                    String flag = (String) msg.obj;
+                    try {
+                        JSONObject jsonObject = new JSONObject(flag);
+                        if ("success".equals(jsonObject.optString("status"))) {
+                            Toast.makeText(mContext, "该简历已收藏", Toast.LENGTH_SHORT).show();
+                        } else {
+                            new UserRequest(mContext, handler).AddFavoriteList(data.getUserid(), data.getResumes_id(), "2", KEY_ADD_FAVORITE);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case KEY_ADD_FAVORITE:
+                    LogUtils.e("Tip","开始添加");
+                    String result = (String) msg.obj;
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        if ("had".equals(jsonObject.optString("data"))){
+                                Toast.makeText(mContext,"该简历已收藏",Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(mContext,"收藏成功",Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }

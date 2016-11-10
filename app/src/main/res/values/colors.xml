@@ -20,5 +20,6 @@
     <color name="translucent_gray">#5CCC</color>
     <color name="lucency">#00000000</color><!--透明色-->
     <color name="gray_content">#5CCC</color>
-
+    <color name="realblack">#000</color>
+    <color name="red">#F00</color>
 </resources>

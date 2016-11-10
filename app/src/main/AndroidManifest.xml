@@ -50,6 +50,8 @@
         <activity android:name=".CompanyIntroduction"/>
         <activity android:name=".CompanyProduct"/>
         <activity android:name=".MyCollection"/>
+        <activity android:name=".MineMyReward"/>
+        <activity android:name=".MineMyHiringRecord"/>
     </application>
 
 </manifest>

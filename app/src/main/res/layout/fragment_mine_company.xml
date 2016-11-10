@@ -159,13 +159,14 @@
             <LinearLayout
                 style="@style/group_item">
                 <LinearLayout
+                    android:id="@+id/my_hiring_record"
                     style="@style/index_item">
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp" />
                     <TextView
 
-                        android:text="我的收藏记录"
+                        android:text="我的招聘记录"
                         style="@style/tvStyle_mine"/>
                     <ImageView
                         android:layout_width="50dp"

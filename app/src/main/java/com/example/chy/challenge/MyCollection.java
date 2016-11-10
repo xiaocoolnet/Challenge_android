@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
 import com.example.chy.challenge.Adepter.TalentAdepter;
 import com.example.chy.challenge.Adepter.TalentResumeInfo;
 import com.example.chy.challenge.NetInfo.UserRequest;
-import com.example.chy.challenge.Utils.LogUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,7 +27,7 @@ import java.util.List;
  * Created by 77588 on 2016/11/8.
  */
 
-public class MyCollection extends Activity implements View.OnClickListener{
+public class MyCollection extends Activity implements View.OnClickListener {
     private List<TalentResumeInfo.DataBean> listData = new ArrayList<>();
     private List<TalentResumeInfo.DataBean.EducationBean> listEdu;
     private List<TalentResumeInfo.DataBean.ProjectBean> listPro;
@@ -38,6 +37,7 @@ public class MyCollection extends Activity implements View.OnClickListener{
     private TalentAdepter talenadapter;
     private RelativeLayout back;
     private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +47,12 @@ public class MyCollection extends Activity implements View.OnClickListener{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(mContext,TalentResumeMore.class);
-                intent.putExtra("data",listData.get(position));
+                Intent intent = new Intent(mContext, TalentResumeMore.class);
+                intent.putExtra("data", listData.get(position));
                 startActivity(intent);
             }
         });
-        new UserRequest(mContext,handler).GetFavoriteList("301","2",KEY);
+        new UserRequest(mContext, handler).GetFavoriteList("301", "2", KEY);
     }
 
     private void initview() {
@@ -63,26 +63,27 @@ public class MyCollection extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.back:
                 finish();
                 break;
         }
     }
+
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
-        public void handleMessage(Message msg){
-            switch (msg.what){
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
                 case KEY:
-                    if (msg.obj!=null){
+                    if (msg.obj != null) {
                         String result = (String) msg.obj;
                         listData.clear();
                         try {
                             JSONObject jsonObject = new JSONObject(result);
-                            if ("success".equals(jsonObject.optString("status"))){
+                            if ("success".equals(jsonObject.optString("status"))) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                if (jsonArray!=null&&jsonArray.length()>0){
-                                    for (int i=0;i<jsonArray.length();i++){
+                                if (jsonArray != null && jsonArray.length() > 0) {
+                                    for (int i = 0; i < jsonArray.length(); i++) {
                                         JSONObject j = jsonArray.getJSONObject(i);
                                         TalentResumeInfo.DataBean talentResumeInfo = new TalentResumeInfo.DataBean();
                                         talentResumeInfo.setUserid(j.getString("userid"));
@@ -112,7 +113,7 @@ public class MyCollection extends Activity implements View.OnClickListener{
                                         listEdu = new ArrayList<>();
                                         listEdu.clear();
                                         JSONArray education = j.getJSONArray("education");
-                                        for (int n = 0;n<education.length();n++){
+                                        for (int n = 0; n < education.length(); n++) {
                                             TalentResumeInfo.DataBean.EducationBean educationBean = new TalentResumeInfo.DataBean.EducationBean();
                                             JSONObject Edu = education.getJSONObject(n);
                                             educationBean.setUserid(Edu.getString("userid"));
@@ -127,7 +128,7 @@ public class MyCollection extends Activity implements View.OnClickListener{
                                         talentResumeInfo.setEducation(listEdu);
                                         listWor = new ArrayList<>();
                                         JSONArray work = j.getJSONArray("work");
-                                        for (int n = 0;n<work.length();n++){
+                                        for (int n = 0; n < work.length(); n++) {
                                             TalentResumeInfo.DataBean.WorkBean workBean = new TalentResumeInfo.DataBean.WorkBean();
                                             JSONObject Wor = work.getJSONObject(n);
                                             workBean.setUserid(Wor.getString("userid"));
@@ -143,7 +144,7 @@ public class MyCollection extends Activity implements View.OnClickListener{
                                         talentResumeInfo.setWork(listWor);
                                         listPro = new ArrayList<>();
                                         JSONArray project = j.getJSONArray("project");
-                                        for (int n = 0;n<project.length();n++){
+                                        for (int n = 0; n < project.length(); n++) {
                                             TalentResumeInfo.DataBean.ProjectBean projectBean = new TalentResumeInfo.DataBean.ProjectBean();
                                             JSONObject Pro = project.getJSONObject(n);
                                             projectBean.setUserid(Pro.getString("userid"));
@@ -158,14 +159,16 @@ public class MyCollection extends Activity implements View.OnClickListener{
                                         listData.add(talentResumeInfo);
                                     }
                                 }
-                                talenadapter = new TalentAdepter(mContext,R.layout.talent_adepter,listData);
-                                listView.setAdapter(talenadapter);
-                            }else {}
+                                if (listData != null) {
+                                    talenadapter = new TalentAdepter(mContext, R.layout.talent_adepter, listData);
+                                    listView.setAdapter(talenadapter);
+                                }
+                            } else {
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-                    LogUtils.e("Tip",listEdu.get(0).getSchool());
                     break;
             }
         }

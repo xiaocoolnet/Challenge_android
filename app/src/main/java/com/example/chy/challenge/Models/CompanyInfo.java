@@ -197,7 +197,7 @@ public class CompanyInfo implements Serializable {
             this.jobs = jobs;
         }
 
-        public static class JobsBean  implements Serializable{
+        public static class JobsBean implements Serializable{
             private String realname;
             private String photo;
             private String myjob;

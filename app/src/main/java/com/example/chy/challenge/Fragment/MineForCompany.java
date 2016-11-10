@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.chy.challenge.CompanyInformation;
+import com.example.chy.challenge.MineMyHiringRecord;
 import com.example.chy.challenge.Models.CompanyInfo;
 import com.example.chy.challenge.MyCollection;
 import com.example.chy.challenge.NetInfo.UserRequest;
@@ -32,7 +33,9 @@ import java.util.List;
  */
 public class MineForCompany extends Fragment implements View.OnClickListener {
     private List<CompanyInfo.DataBean.JobsBean> listJob;
-    private LinearLayout company_information,myCollection;
+    private CompanyInfo.DataBean companyInfo;
+    private LinearLayout company_information, myCollection, myHiringRecord;
+    private Intent intent;
     private final int KEY = 1;
     private Context mContext;
 
@@ -58,6 +61,8 @@ public class MineForCompany extends Fragment implements View.OnClickListener {
         company_information.setOnClickListener(this);
         myCollection = (LinearLayout) rootView.findViewById(R.id.my_collection);
         myCollection.setOnClickListener(this);
+        myHiringRecord = (LinearLayout) rootView.findViewById(R.id.my_hiring_record);
+        myHiringRecord.setOnClickListener(this);
     }
 
     @Override
@@ -70,10 +75,29 @@ public class MineForCompany extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.company_information:
-                new UserRequest(mContext,handler).GetMyCompanyInfo("301",KEY);
+                intent = new Intent(mContext, CompanyInformation.class);
+                if (companyInfo == null) {
+                    new UserRequest(mContext, handler).GetMyCompanyInfo("301", KEY);
+                } else try {
+                    intent.putExtra("data", companyInfo);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    new UserRequest(mContext, handler).GetMyCompanyInfo("301", KEY);
+                }
                 break;
             case R.id.my_collection:
                 startActivity(new Intent(mContext, MyCollection.class));
+                break;
+            case R.id.my_hiring_record:
+                intent = new Intent(mContext, MineMyHiringRecord.class);
+                if (companyInfo == null) {
+                    new UserRequest(mContext, handler).GetMyCompanyInfo("301", KEY);
+                } else try {
+                    intent.putExtra("data", companyInfo);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    new UserRequest(mContext, handler).GetMyCompanyInfo("301", KEY);
+                }
                 break;
             default:
                 break;
@@ -88,10 +112,10 @@ public class MineForCompany extends Fragment implements View.OnClickListener {
                 case KEY:
                     try {
                         JSONObject jsonObject = new JSONObject((String) msg.obj);
-                        if ("success".equals(jsonObject.optString("status"))){
+                        if ("success".equals(jsonObject.optString("status"))) {
                             JSONObject jdata = jsonObject.getJSONObject("data");
-                            if (jdata!=null&&jdata.length()>0){
-                                CompanyInfo.DataBean companyInfo = new CompanyInfo.DataBean();
+                            if (jdata != null && jdata.length() > 0) {
+                                companyInfo = new CompanyInfo.DataBean();
                                 companyInfo.setLogo(jdata.getString("logo"));
                                 companyInfo.setCompanyid(jdata.getString("companyid"));
                                 companyInfo.setCompany_name(jdata.getString("company_name"));
@@ -107,7 +131,7 @@ public class MineForCompany extends Fragment implements View.OnClickListener {
                                 companyInfo.setProdute_info(jdata.getString("produte_info"));
                                 listJob = new ArrayList<CompanyInfo.DataBean.JobsBean>();
                                 JSONArray jobs = jdata.getJSONArray("jobs");
-                                for (int i =0;i<jobs.length();i++){
+                                for (int i = 0; i < jobs.length(); i++) {
                                     JSONObject Job = jobs.getJSONObject(i);
                                     CompanyInfo.DataBean.JobsBean jobsBean = new CompanyInfo.DataBean.JobsBean();
                                     jobsBean.setRealname(Job.getString("realname"));
@@ -129,8 +153,7 @@ public class MineForCompany extends Fragment implements View.OnClickListener {
                                     listJob.add(jobsBean);
                                 }
                                 companyInfo.setJobs(listJob);
-                                Intent intent = new Intent(mContext,CompanyInformation.class);
-                                intent.putExtra("data",companyInfo);
+                                intent.putExtra("data", companyInfo);
                                 startActivity(intent);
                             }
                         }

@@ -26,4 +26,8 @@ public interface UserNetConstant extends NetBaseConstant {
     public final static String GET_MY_COMPANY_INFO = NET_BASE_HOST + "a=getMyCompany_info";
     //获取收藏列表
     public final static String GET_FAVORITE_LIST = NET_BASE_HOST+"a=getfavoritelist";
+    //添加收藏
+    public final static String ADD_FAVORITE_LIST = NET_BASE_HOST+"a=addfavorite";
+    //检测是否收藏
+    public final static String CHECK_HAD_FAVORITE = NET_BASE_HOST+"a=CheckHadFavorite";
 }
