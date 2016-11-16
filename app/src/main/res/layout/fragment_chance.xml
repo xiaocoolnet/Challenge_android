@@ -69,36 +69,11 @@
             android:id="@+id/imageView2" />
     </RelativeLayout>
 
-    <RadioGroup
+    <FrameLayout
+        android:id="@+id/f_chance"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            style="@style/main_tab_button"
-            android:text="最新" />
-
-        <RadioButton
-            style="@style/main_tab_button"
-            android:text="最近" />
-
-        <RadioButton
-            style="@style/main_tab_button"
-            android:text="最热" />
-
-        <RadioButton
-            style="@style/main_tab_button"
-            android:text="评价"
-            android:layout_width="66dp" />
-
-        <RadioButton
-            style="@style/main_tab_button"
-            android:text="薪资" />
-
-        <RadioButton
-            style="@style/main_tab_button"
-            android:text="红包" />
-    </RadioGroup>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -106,17 +81,5 @@
         android:layout_weight="1"
         android:fillViewport="true">
 
-        <FrameLayout
-            android:id="@+id/frame"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <com.example.chy.challenge.pnlllist.PullToRefreshListView
-                android:id="@+id/lv_comprehensive"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawSelectorOnTop="false"
-                android:scrollbars="none" />
-        </FrameLayout>
     </ScrollView>
 </LinearLayout>

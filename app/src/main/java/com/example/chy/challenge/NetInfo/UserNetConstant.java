@@ -19,15 +19,21 @@ public interface UserNetConstant extends NetBaseConstant {
     //提交个人信息
     public final static String UPDATECOMMANY = NET_BASE_HOST + "&a=savecompanyinfo";
     //上传头像
-    public final static String UPLOADAVATAR= NET_BASE_HOST + "&a=uploadavatar";
+    public final static String UPLOADAVATAR = NET_BASE_HOST + "&a=uploadavatar";
     //获取简历列表
     public final static String GET_RESUME_LIST = NET_BASE_HOST + "a=getResumeList";
     //获取我的企业信息
     public final static String GET_MY_COMPANY_INFO = NET_BASE_HOST + "a=getMyCompany_info";
     //获取收藏列表
-    public final static String GET_FAVORITE_LIST = NET_BASE_HOST+"a=getfavoritelist";
+    public final static String GET_FAVORITE_LIST = NET_BASE_HOST + "a=getfavoritelist";
     //添加收藏
-    public final static String ADD_FAVORITE_LIST = NET_BASE_HOST+"a=addfavorite";
+    public final static String ADD_FAVORITE_LIST = NET_BASE_HOST + "a=addfavorite";
     //检测是否收藏
-    public final static String CHECK_HAD_FAVORITE = NET_BASE_HOST+"a=CheckHadFavorite";
+    public final static String CHECK_HAD_FAVORITE = NET_BASE_HOST + "a=CheckHadFavorite";
+    //获取黑名单
+    public final static String GET_BLACKLIST = NET_BASE_HOST + "a=getBlackList";
+    //添加黑名单
+    public final static String SET_BLACKLIST = NET_BASE_HOST + "a=setBlackList";
+    //取消黑名单
+    public final static String DEL_BLACKLIST = NET_BASE_HOST + "a=delBlackList";
 }

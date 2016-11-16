@@ -34,7 +34,7 @@ import java.util.List;
 public class MineForCompany extends Fragment implements View.OnClickListener {
     private List<CompanyInfo.DataBean.JobsBean> listJob;
     private CompanyInfo.DataBean companyInfo;
-    private LinearLayout company_information, myCollection, myHiringRecord;
+    private LinearLayout company_information, myCollection, myHiringRecord,MyBlackList;
     private Intent intent;
     private final int KEY = 1;
     private Context mContext;
@@ -63,6 +63,8 @@ public class MineForCompany extends Fragment implements View.OnClickListener {
         myCollection.setOnClickListener(this);
         myHiringRecord = (LinearLayout) rootView.findViewById(R.id.my_hiring_record);
         myHiringRecord.setOnClickListener(this);
+        MyBlackList = (LinearLayout) rootView.findViewById(R.id.my_black_list);
+        MyBlackList.setOnClickListener(this);
     }
 
     @Override
@@ -98,6 +100,9 @@ public class MineForCompany extends Fragment implements View.OnClickListener {
                 } catch (Exception e) {
                     new UserRequest(mContext, handler).GetMyCompanyInfo("301", KEY);
                 }
+                break;
+            case R.id.my_black_list:
+                startActivity(new Intent(mContext, com.example.chy.challenge.MyBlackList.class));
                 break;
             default:
                 break;

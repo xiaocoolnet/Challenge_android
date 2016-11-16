@@ -54,4 +54,21 @@
     <string name="cfp1">未融资</string>
     <string name="cfp2">A阶段</string>
     <string name="cfp3">B阶段</string>
+
+    <!--创建企业信息-->
+    <string name="myname_title">姓名</string>
+    <string name="myname_note">请填写您真实的信息</string>
+    <string name="myname_maxlength">4</string>
+
+    <string name="myjob_title">我的职位</string>
+    <string name="myjob_note">请填写您的现任职位，不能包含特殊符号</string>
+    <string name="myjob_maxlength">10</string>
+
+    <string name="myemail_title">接收简历邮箱</string>
+    <string name="myemail_note">请填写您的公司邮箱</string>
+    <string name="myemail_maxlength">4</string>
+
+    <string name="mycompany_title">公司名称</string>
+    <string name="mycompany_note">公司全称是您所在公司的营业执照或劳动合同上的公司名称，请确保您的填写完全匹配</string>
+    <string name="mycompany_maxlength">50</string>
 </resources>

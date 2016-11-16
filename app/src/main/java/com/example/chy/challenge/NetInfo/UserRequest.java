@@ -352,15 +352,9 @@ public class UserRequest {
                 pairs.add(new BasicNameValuePair("type", type));
                 String result = NetBaseUtils.getResponseForPost(UserNetConstant.ADD_FAVORITE_LIST, pairs, mContext);
                 if (result != null) {
-                    try {
-                        JSONObject jsonObject = new JSONObject(result);
                         msg.what = KEY;
                         msg.obj = result;
                         handler.sendMessage(msg);
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
                 }
             }
         }.start();
@@ -368,7 +362,7 @@ public class UserRequest {
     }
 
     /**
-     * 检查手否收藏
+     * 检查是否收藏
      *
      * @param userid
      * @param object_id
@@ -387,18 +381,74 @@ public class UserRequest {
                 pairs.add(new BasicNameValuePair("type", type));
                 String result = NetBaseUtils.getResponseForPost(UserNetConstant.CHECK_HAD_FAVORITE, pairs, mContext);
                 if (result != null) {
-                    try {
-                        JSONObject jsonObject = new JSONObject(result);
                         msg.what = KEY;
                         msg.obj = result;
                         handler.sendMessage(msg);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
                 }
             }
         }.start();
 
     }
 
+    public void GetBlackList(final String userid, final String type, final int KEY) {
+        new Thread() {
+            Message msg = new Message();
+
+            @Override
+            public void run() {
+                List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair("userid", userid));
+                pairs.add(new BasicNameValuePair("type", type));
+                String result = NetBaseUtils.getResponseForPost(UserNetConstant.GET_BLACKLIST, pairs, mContext);
+                if (result != null) {
+                    msg.what = KEY;
+                    msg.obj = result;
+                    handler.sendMessage(msg);
+                }
+            }
+        }.start();
+
+    }
+
+    public void SetBlackList(final String userid, final String type, final String blackid, final String reason, final int KEY) {
+        new Thread() {
+            Message msg = new Message();
+
+            @Override
+            public void run() {
+                List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair("userid", userid));
+                pairs.add(new BasicNameValuePair("type", type));
+                pairs.add(new BasicNameValuePair("blackid", blackid));
+                pairs.add(new BasicNameValuePair("reason", reason));
+                String result = NetBaseUtils.getResponseForPost(UserNetConstant.SET_BLACKLIST, pairs, mContext);
+                if (result != null) {
+                    msg.what = KEY;
+                    msg.obj = result;
+                    handler.sendMessage(msg);
+                }
+            }
+        }.start();
+
+    }
+
+    public void DelBlackList(final String userid, final String type, final String blackid, final int KEY) {
+        new Thread() {
+            Message msg = new Message();
+
+            @Override
+            public void run() {
+                List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair("userid", userid));
+                pairs.add(new BasicNameValuePair("type", type));
+                pairs.add(new BasicNameValuePair("blackid", blackid));
+                String result = NetBaseUtils.getResponseForPost(UserNetConstant.DEL_BLACKLIST, pairs, mContext);
+                if (result != null) {
+                    msg.what = KEY;
+                    msg.obj = result;
+                    handler.sendMessage(msg);
+                }
+            }
+        }.start();
+    }
 }

@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class CompanyName extends Activity implements View.OnClickListener {
     private ImageView back, submit;
     private EditText editText;
-    private TextView textLengh,maxLength;
+    private TextView textLength,maxLength;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class CompanyName extends Activity implements View.OnClickListener {
         submit.setOnClickListener(this);
         editText = (EditText) findViewById(R.id.comNameInput);
         editText.addTextChangedListener(mTextWatcher);
-        textLengh = (TextView) findViewById(R.id.text_length);
+        textLength = (TextView) findViewById(R.id.text_length);
         maxLength = (TextView) findViewById(R.id.manLength);
     }
     TextWatcher mTextWatcher = new TextWatcher() {
@@ -48,7 +48,7 @@ public class CompanyName extends Activity implements View.OnClickListener {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            textLengh.setText(String.valueOf(temp.length()));
+            textLength.setText(String.valueOf(temp.length()));
         }
 
         @Override

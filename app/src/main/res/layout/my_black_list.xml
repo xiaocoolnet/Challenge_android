@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgc">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_50">
+        <include layout="@layout/title_back"/>
+        <TextView
+            android:text="我的黑名单"
+            style="@style/title_text"/>
+    </RelativeLayout>
+    <ListView
+        android:layout_marginTop="@dimen/activity_layout_10"
+        android:id="@+id/black_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </ListView>
+</LinearLayout>

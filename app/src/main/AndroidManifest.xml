@@ -52,6 +52,8 @@
         <activity android:name=".MyCollection"/>
         <activity android:name=".MineMyReward"/>
         <activity android:name=".MineMyHiringRecord"/>
+        <activity android:name=".PersonInformationTalentInput"/>
+        <activity android:name=".MyBlackList"/>
     </application>
 
 </manifest>

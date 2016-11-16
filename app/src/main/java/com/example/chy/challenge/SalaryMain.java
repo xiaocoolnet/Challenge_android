@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.RadioButton;
 
 import com.example.chy.challenge.Fragment.Chance;
+import com.example.chy.challenge.Fragment.ChanceFindWork;
 import com.example.chy.challenge.Fragment.Messages;
 import com.example.chy.challenge.Fragment.MineForPerson;
 import com.example.chy.challenge.Fragment.Resume;
@@ -24,12 +25,11 @@ public class SalaryMain extends Activity implements View.OnClickListener,MineFor
         setContentView(R.layout.main_salary);
         initview();
         btnChance.setChecked(true);
-
         btnChance.setTextColor(getResources().getColor(R.color.green));
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Chance chance = new Chance();
-        transaction.replace(R.id.salary_layout,chance);
+        transaction.replace(R.id.salary_layout, chance);
         transaction.commit();
     }
 
@@ -55,8 +55,8 @@ public class SalaryMain extends Activity implements View.OnClickListener,MineFor
         switch (view.getId()){
             case R.id.btnChance:
                 btnChance.setTextColor(getResources().getColor(R.color.green));
-                Chance chance = new Chance();
-                transaction.replace(R.id.salary_layout,chance);
+                ChanceFindWork chanceFindWork = new ChanceFindWork();
+                transaction.replace(R.id.salary_layout, chanceFindWork);
                 transaction.commit();
                 break;
             case R.id.btnResume:

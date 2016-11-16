@@ -1,6 +1,5 @@
 package com.example.chy.challenge.Fragment;
 
-import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -8,8 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,103 +14,43 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.Poi;
-import com.example.chy.challenge.Adepter.Detail_Adepter;
-import com.example.chy.challenge.Adepter.RecruitmentInfo;
 import com.example.chy.challenge.NetInfo.LocationService;
-import com.example.chy.challenge.NetInfo.UserRequest;
 import com.example.chy.challenge.R;
 import com.example.chy.challenge.Srearch;
-import com.example.chy.challenge.Utils.LogUtils;
-import com.example.chy.challenge.pnlllist.PullToRefreshBase;
-import com.example.chy.challenge.pnlllist.PullToRefreshListView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
- * Created by 77588 on 2016/9/1.
+ * Created by 77588 on 2016/11/15.
  */
-public class Chance extends Fragment implements View.OnClickListener {
 
-    private Button btnFindWork, btnFindBoss;
-    private GradientDrawable left, right;
-    private ImageView search;
-    private Detail_Adepter detail_adepter;
-    private Context mContext;
-    private List<RecruitmentInfo> list = new ArrayList<RecruitmentInfo>();
-    private SimpleDateFormat mdata = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    private View viewH = null;
-    private ListView lv_view;
-    private TextView detail_loading,tv_chance_local;
-    private PullToRefreshListView pulllist;
-    private final int KEY = 1;
+public class Chance extends Fragment implements View.OnClickListener{
     private LocationService locationService;
-
-
-
+    private ImageView search;
+    private GradientDrawable left, right;
+    private Button btnFindWork, btnFindBoss;
+    private Context mContext;
+    private TextView detail_loading,tv_chance_local;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chance, container, false);
         initview(view);
         mContext = getActivity();
-        new UserRequest(mContext,handler).GetJobList(KEY);
-        pulllist = (PullToRefreshListView) view.findViewById(R.id.lv_comprehensive);
-        //设置下拉活动
-        pulllist.setPullLoadEnabled(true);
-        pulllist.setScrollLoadEnabled(false);
 
-
-        pulllist.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
-            @Override
-            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-                new UserRequest(mContext,handler).GetJobList(KEY);
-                stopRefresh();
-            }
-            @Override
-            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-                stopRefresh();
-            }
-        });
-
-
-        //获取当前时间
-        setLastData();
-
-        //自动刷新，500毫秒
-//        pulllist.doPullRefreshing(true, 500);
-
-        //设置pulllistview
-        lv_view = pulllist.getRefreshableView();
-        for (int i = 0; i < 10; i++) {
-            //list.add(String.valueOf(i));
-        }
-        detail_adepter = new Detail_Adepter(mContext,R.layout.detail_adepter, list);
-        lv_view.setAdapter(detail_adepter);
-
-        //添加头部信息
-//        viewH = LayoutInflater.from(getActivity()).inflate(R.layout.firstpagenew, null);
-//        lv_view.addHeaderView(viewH);
-
-
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        ChanceFindWork chanceFindWork = new ChanceFindWork();
+        transaction.replace(R.id.f_chance, chanceFindWork);
+        transaction.commit();
         return view;
-
-
     }
 
     private void initview(View v) {
+
         btnFindWork = (Button) v.findViewById(R.id.btnfindWork);
         btnFindWork.setOnClickListener(this);
         btnFindBoss = (Button) v.findViewById(R.id.btnfindBoss);
@@ -124,66 +61,11 @@ public class Chance extends Fragment implements View.OnClickListener {
         search.setOnClickListener(this);
         tv_chance_local = (TextView) v.findViewById(R.id.tv_chance_local);
         tv_chance_local.setOnClickListener(this);
-
-    }
-
-    //获取当前时间
-    private void setLastData() {
-        String text = formatdatatime(System.currentTimeMillis());
-        pulllist.setLastUpdatedLabel(text);
-        Log.i("time", "-------->" + text);
-    }
-
-    //停止刷新
-    private void stopRefresh() {
-        pulllist.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pulllist.onPullUpRefreshComplete();
-                pulllist.onPullDownRefreshComplete();
-                setLastData();
-            }
-        }, 2000);
-    }
-
-    private String formatdatatime(long time) {
-        if (0 == time) {
-            return "";
-        }
-        return mdata.format(new Date(time));
-    }
-
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==1){
-            tv_chance_local.setText(data.getStringExtra("city"));
-            Log.e("city=",data.getStringExtra("city"));
-        }
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btnfindWork:
-                right.setColor(getResources().getColor(R.color.green));
-                left.setColor(getResources().getColor(R.color.white));
-                btnFindWork.setTextColor(getResources().getColor(R.color.green));
-                btnFindBoss.setTextColor(getResources().getColor(R.color.white));
-                break;
-            case R.id.btnfindBoss:
-                left.setColor(getResources().getColor(R.color.green));
-                right.setColor(getResources().getColor(R.color.white));
-                btnFindWork.setTextColor(getResources().getColor(R.color.white));
-                btnFindBoss.setTextColor(getResources().getColor(R.color.green));
-                FindBossFragment findBossFragment = new FindBossFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.frame,findBossFragment);
-                transaction.commit();
-
-                break;
+    public void onClick(View v) {
+        switch (v.getId()){
             case R.id.search:
                 Intent intent1 = new Intent();
                 intent1.setClass(mContext, Srearch.class);
@@ -195,47 +77,35 @@ public class Chance extends Fragment implements View.OnClickListener {
                 intent.setClass(mContext,LocalAddressActivity.class);
                 intent.putExtra("city",tv_chance_local.getText().toString());
                 startActivityForResult(intent,1);
+            case R.id.btnfindWork:
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                ChanceFindWork chanceFindWork = new ChanceFindWork();
+                transaction.replace(R.id.f_chance, chanceFindWork);
+                transaction.commit();
+                right.setColor(getResources().getColor(R.color.green));
+                left.setColor(getResources().getColor(R.color.white));
+                btnFindWork.setTextColor(getResources().getColor(R.color.green));
+                btnFindBoss.setTextColor(getResources().getColor(R.color.white));
+                break;
+            case R.id.btnfindBoss:
+                left.setColor(getResources().getColor(R.color.green));
+                right.setColor(getResources().getColor(R.color.white));
+                btnFindWork.setTextColor(getResources().getColor(R.color.white));
+                btnFindBoss.setTextColor(getResources().getColor(R.color.green));
+                break;
         }
-
-
-
     }
 
-    @SuppressLint("HandlerLeak")
-    private Handler handler = new Handler() {
-        public void handleMessage(Message msg){
-            switch (msg.what){
-                case KEY:
-                    String result = msg.obj.toString();
-                    try {
-                        JSONObject demojson = new JSONObject(result);
-                        JSONArray jsonlist = demojson.getJSONArray("data");
-                        for (int i=0; i<jsonlist.length(); i++){
-                            list.clear();
-                            list.add(new RecruitmentInfo(jsonlist.getJSONObject(i).getString("title"),
-                                    jsonlist.getJSONObject(i).getString("company_name"),
-                                    jsonlist.getJSONObject(i).getString("realname"),
-                                    jsonlist.getJSONObject(i).getString("myjob"),
-                                    jsonlist.getJSONObject(i).getString("count"),
-                                    jsonlist.getJSONObject(i).getString("company_score"),
-                                    jsonlist.getJSONObject(i).getString("salary"),
-                                    jsonlist.getJSONObject(i).getString("distance"),
-                                    jsonlist.getJSONObject(i).getString("address"),
-                                    jsonlist.getJSONObject(i).getString("experience"),
-                                    jsonlist.getJSONObject(i).getString("education"),
-                                    jsonlist.getJSONObject(i).getString("work_property")
-                                    ));
-                        }
-                        LogUtils.e("Tip",list.get(0).toString());
-                        detail_adepter = new Detail_Adepter(mContext,R.layout.detail_adepter, list);
-                        lv_view.setAdapter(detail_adepter);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-            }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==1){
+            tv_chance_local.setText(data.getStringExtra("city"));
+            Log.e("city=",data.getStringExtra("city"));
         }
-    };
+    }
+
 
     public void onrefrsh(){
         // -----------location config ------------
@@ -254,7 +124,6 @@ public class Chance extends Fragment implements View.OnClickListener {
     }
 
     /*****
-     * @see copy funtion to you project
      * 定位结果回调，重写onReceiveLocation方法，可以直接拷贝如下代码到自己工程中修改
      *
      */
@@ -338,6 +207,5 @@ public class Chance extends Fragment implements View.OnClickListener {
             }
         }
     };
-
 
 }
